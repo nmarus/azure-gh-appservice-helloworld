@@ -2,4 +2,4 @@ FROM node:16
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install
-CMD [ "node, "./bin/www" ]
+CMD [ "node", "./bin/www" ]
