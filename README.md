@@ -65,10 +65,13 @@ az webapp deployment list-publishing-profiles \
 
 The following steps only need to be performed at the initial creation of the Github repository. These settings configure github actions to automatically create the docker container and deploy to Azure.
 
-1. In the Github repository settings, create secret named "AZURE_WEBAPP_PUBLISH_PROFILE"
-2. Copy contents of the `${APP_NAME}.PublishSettings` file created above to the secret.
-3. Update/verify the application name within `.github/workflows/azure-app-service.yml`
-4. Commit changes to repository. 
+1. In the Github repository navigate to Settings → Secrets and Variables → Actions
+2. Create secret named "AZURE_WEBAPP_PUBLISH_PROFILE"
+3. Copy contents of the `${APP_NAME}.PublishSettings` file created above to the secret.
+4. In the Github Org/User, navigate to Packages → $yourPackage → Package settings 
+5. Configure “Manage Actions access” section to allow the git repository in question write permissions on this package/docker repository
+6. Update/verify the application name within `.github/workflows/azure-app-service.yml`
+7. Commit changes to repository. 
 
 ## Updating Application/Configuration
 
